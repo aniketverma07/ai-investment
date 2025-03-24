@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="#6d28d9" />
+  
+  <!-- X shape -->
+  <path d="M30 30 L70 70 M70 30 L30 70" stroke="white" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Orbit Rings -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+  <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" />
+  
+  <!-- Particles -->
+  <circle cx="85" cy="50" r="4" fill="white" />
+  <circle cx="50" cy="15" r="3" fill="white" />
+  <circle cx="25" cy="75" r="2.5" fill="white" />
+</svg>
