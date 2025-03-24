@@ -25,7 +25,7 @@ interface CryptoData {
   matchScore?: number;
   volatility?: number;
   risk?: number;
-  moonshot?: number;
+  moonshot?: number | string;
 }
 
 interface RecommendationResultsProps {
@@ -415,24 +415,60 @@ export default function RecommendationResults({
                     <div className="grid grid-cols-3 gap-4">
                       <div>
                         <div className="text-xs text-white/70 mb-1">Risk</div>
-                        <div className="inline-flex items-center px-2 py-1 rounded-md bg-red-500/20 text-red-400 text-xs font-medium">
-                          <span className="mr-1">🔥</span>
-                          High
-                        </div>
+                        {coin.risk && coin.risk < 5 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-green-500/20 text-green-400 text-xs font-medium">
+                            <span className="mr-1">🛡️</span>
+                            Low
+                          </div>
+                        ) : coin.risk && coin.risk < 8 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-yellow-500/20 text-yellow-400 text-xs font-medium">
+                            <span className="mr-1">⚠️</span>
+                            Medium
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-red-500/20 text-red-400 text-xs font-medium">
+                            <span className="mr-1">🔥</span>
+                            High
+                          </div>
+                        )}
                       </div>
                       <div>
                         <div className="text-xs text-white/70 mb-1">Volatility</div>
-                        <div className="inline-flex items-center px-2 py-1 rounded-md bg-orange-500/20 text-orange-400 text-xs font-medium">
-                          <span className="mr-1">🎢</span>
-                          High
-                        </div>
+                        {coin.volatility && coin.volatility < 15 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-green-500/20 text-green-400 text-xs font-medium">
+                            <span className="mr-1">📊</span>
+                            Low
+                          </div>
+                        ) : coin.volatility && coin.volatility < 30 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-yellow-500/20 text-yellow-400 text-xs font-medium">
+                            <span className="mr-1">📈</span>
+                            Medium
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-orange-500/20 text-orange-400 text-xs font-medium">
+                            <span className="mr-1">🎢</span>
+                            High
+                          </div>
+                        )}
                       </div>
                       <div>
                         <div className="text-xs text-white/70 mb-1">Moonshot</div>
-                        <div className="inline-flex items-center px-2 py-1 rounded-md bg-pink-500/20 text-pink-400 text-xs font-medium">
-                          <span className="mr-1">🚀</span>
-                          High
-                        </div>
+                        {typeof coin.moonshot === 'string' && coin.moonshot.includes('3x') || coin.moonshot === 3 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-blue-500/20 text-blue-400 text-xs font-medium">
+                            <span className="mr-1">🔍</span>
+                            Low
+                          </div>
+                        ) : typeof coin.moonshot === 'string' && coin.moonshot.includes('5x') || coin.moonshot === 5 ? (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-indigo-500/20 text-indigo-400 text-xs font-medium">
+                            <span className="mr-1">⭐</span>
+                            Medium
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center px-2 py-1 rounded-md bg-pink-500/20 text-pink-400 text-xs font-medium">
+                            <span className="mr-1">🚀</span>
+                            High
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
