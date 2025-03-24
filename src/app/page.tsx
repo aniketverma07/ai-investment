@@ -35,7 +35,7 @@ interface CryptoData {
   matchScore?: number;
   volatility?: number;
   risk?: number;
-  moonshot?: number;
+  moonshot?: string;
 }
 
 // Define interface for CSV parsing results
@@ -45,6 +45,30 @@ interface CsvData {
   Risk: string;
   'Moonshot Score': string;
   [key: string]: string;
+}
+
+interface RecommendationResultsProps {
+  cryptoData: {
+    name: string;
+    symbol?: string;
+    price?: number;
+    marketCap?: number;
+    volume?: number;
+    riskScore?: number;
+    volatilityScore?: number;
+    moonshotScore?: number;
+    overallScore?: number;
+    allocation: number;
+    amount?: string;
+    color?: string;
+    matchScore?: number;
+    volatility?: number;
+    risk?: number;
+    moonshot?: string;
+  }[];
+  investmentAmount: string;
+  isLoading: boolean;
+  onStartOver: () => void;
 }
 
 export default function Home() {
@@ -221,8 +245,7 @@ export default function Home() {
                 // Extract numeric values
                 const coinVolatility = parseInt(row.Volatility) || 0;
                 const coinRisk = parseInt(row.Risk) || 0;
-                const coinMoonshot = row['Moonshot Score'].replace('x', '') || '0';
-                const moonshotValue = parseInt(coinMoonshot) || 0;
+                const coinMoonshot = row['Moonshot Score'] || '0x'; // Keep the 'x' for display
                 
                 // Calculate match score based on user preferences
                 let matchScore = 0;
@@ -237,6 +260,7 @@ export default function Home() {
                 
                 // Moonshot preference match (higher is better)
                 let moonshotMatch = 0;
+                const moonshotValue = parseInt(coinMoonshot.replace('x', '')) || 0;
                 if (moonshotLevel <= 3 && moonshotValue <= 3) moonshotMatch = 10;
                 else if (moonshotLevel <= 7 && moonshotValue <= 7) moonshotMatch = 10;
                 else if (moonshotLevel > 7 && moonshotValue >= 7) moonshotMatch = 10;
@@ -281,7 +305,7 @@ export default function Home() {
                   matchScore,
                   volatility: coinVolatility,
                   risk: coinRisk,
-                  moonshot: moonshotValue,
+                  moonshot: coinMoonshot, // Keep the original format with 'x'
                   allocation: 0, // Will be calculated later
                   color: getRandomColor(),
                 };
@@ -443,8 +467,8 @@ export default function Home() {
   const renderResults = () => {
     return (
       <RecommendationResults 
-        cryptoData={cryptoData} 
-        investmentAmount={investmentAmount}
+        cryptoData={cryptoData as RecommendationResultsProps['cryptoData']} 
+        investmentAmount={investmentAmount} 
         isLoading={isLoading}
         onStartOver={handleStartOver}
       />

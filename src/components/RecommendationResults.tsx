@@ -11,10 +11,10 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tool
 
 interface CryptoData {
   name: string;
-  symbol: string;
-  price: number;
-  marketCap: number;
-  volume: number;
+  symbol?: string;
+  price?: number;
+  marketCap?: number;
+  volume?: number;
   riskScore?: number;
   volatilityScore?: number;
   moonshotScore?: number;
@@ -25,7 +25,7 @@ interface CryptoData {
   matchScore?: number;
   volatility?: number;
   risk?: number;
-  moonshot?: number | string;
+  moonshot?: string;
 }
 
 interface RecommendationResultsProps {
@@ -104,36 +104,13 @@ export default function RecommendationResults({
       const total = cryptoData.reduce((sum, coin) => sum + coin.allocation, 0);
       setTotalAllocation(total);
       
-      // Prepare chart data
-      const labels = cryptoData.map(coin => coin.symbol);
-      const data = cryptoData.map(coin => coin.allocation);
-      
-      // Generate colors for the chart with primary color variations
-      const backgroundColors = [
-        'rgba(139, 92, 246, 0.9)',   // primary
-        'rgba(139, 92, 246, 0.8)',   // primary lighter
-        'rgba(139, 92, 246, 0.7)',   // primary even lighter
-        'rgba(167, 139, 250, 0.9)',  // primary-light
-        'rgba(167, 139, 250, 0.8)',  // primary-light lighter
-        'rgba(167, 139, 250, 0.7)',  // primary-light even lighter
-        'rgba(124, 58, 237, 0.9)',   // primary-dark
-        'rgba(124, 58, 237, 0.8)'    // primary-dark lighter
-      ];
-      
-      const borderColors = backgroundColors.map(color => color.replace(/[0-9].[0-9]/, '1'));
-      
-      // Ensure we have enough colors for all coins
-      while (backgroundColors.length < cryptoData.length) {
-        backgroundColors.push(...backgroundColors);
-        borderColors.push(...borderColors);
-      }
-      
+      // Set chart data
       setChartData({
-        labels,
+        labels: cryptoData.map(coin => coin.name),
         datasets: [{
-          data,
-          backgroundColor: backgroundColors.slice(0, cryptoData.length),
-          borderColor: borderColors.slice(0, cryptoData.length),
+          data: cryptoData.map(coin => coin.allocation),
+          backgroundColor: cryptoData.map(coin => coin.color || '#8a5cf6'),
+          borderColor: cryptoData.map(() => 'rgba(255, 255, 255, 0.2)'),
           borderWidth: 1,
         }]
       });
@@ -157,11 +134,11 @@ export default function RecommendationResults({
       });
       
       setPotentialReturnsData({
-        labels,
+        labels: cryptoData.map(coin => coin.name),
         datasets: [{
           label: 'Potential Return ($)',
           data: potentialReturns,
-          backgroundColor: backgroundColors.slice(0, cryptoData.length),
+          backgroundColor: cryptoData.map(coin => coin.color || '#8a5cf6'),
         }]
       });
     }
@@ -228,17 +205,8 @@ export default function RecommendationResults({
                   datasets: [
                     {
                       data: cryptoData.map(coin => coin.allocation),
-                      backgroundColor: [
-                        '#8a5cf6', // Primary purple
-                        '#a78bfa',
-                        '#c4b5fd',
-                        '#ddd6fe',
-                        '#ede9fe',
-                        '#f5f3ff',
-                        '#7c3aed',
-                        '#6d28d9',
-                      ],
-                      borderColor: 'rgba(0, 0, 0, 0.1)',
+                      backgroundColor: cryptoData.map(coin => coin.color || '#8a5cf6'),
+                      borderColor: cryptoData.map(() => 'rgba(255, 255, 255, 0.2)'),
                       borderWidth: 1,
                     },
                   ],
@@ -290,7 +258,7 @@ export default function RecommendationResults({
             <div className="h-64 relative">
               <Bar 
                 data={{
-                  labels: cryptoData.map(coin => coin.symbol),
+                  labels: cryptoData.map(coin => coin.name),
                   datasets: [
                     {
                       label: 'Potential Return ($)',
@@ -306,8 +274,8 @@ export default function RecommendationResults({
                         }
                         return coinInvestment * moonshotMultiplier;
                       }),
-                      backgroundColor: '#8a5cf6',
-                      borderColor: 'rgba(0, 0, 0, 0.1)',
+                      backgroundColor: cryptoData.map(coin => coin.color || '#8a5cf6'),
+                      borderColor: cryptoData.map(() => 'rgba(255, 255, 255, 0.2)'),
                       borderWidth: 1,
                     }
                   ]
@@ -384,7 +352,7 @@ export default function RecommendationResults({
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3 shadow-md shadow-primary/20">
-                          <span className="text-sm font-bold text-white">{coin.symbol.charAt(0)}</span>
+                          <span className="text-sm font-bold text-white">{coin.symbol?.charAt(0)}</span>
                         </div>
                         <div>
                           <div className="text-lg font-medium text-white">{coin.name}</div>
@@ -453,12 +421,12 @@ export default function RecommendationResults({
                       </div>
                       <div>
                         <div className="text-xs text-white/70 mb-1">Moonshot</div>
-                        {typeof coin.moonshot === 'string' && coin.moonshot.includes('3x') || coin.moonshot === 3 ? (
+                        {coin.moonshot && coin.moonshot.includes('3x') ? (
                           <div className="inline-flex items-center px-2 py-1 rounded-md bg-blue-500/20 text-blue-400 text-xs font-medium">
                             <span className="mr-1">🔍</span>
                             Low
                           </div>
-                        ) : typeof coin.moonshot === 'string' && coin.moonshot.includes('5x') || coin.moonshot === 5 ? (
+                        ) : coin.moonshot && coin.moonshot.includes('5x') ? (
                           <div className="inline-flex items-center px-2 py-1 rounded-md bg-indigo-500/20 text-indigo-400 text-xs font-medium">
                             <span className="mr-1">⭐</span>
                             Medium
