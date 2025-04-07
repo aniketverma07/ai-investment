@@ -24,11 +24,20 @@ interface AccessCodeInputs {
 interface CryptoData {
   name: string;
   symbol: string;
+  price?: number;
+  marketCap?: number;
+  volume?: number;
+  riskScore?: number;
+  volatilityScore?: number;
+  moonshotScore?: number;
+  overallScore?: number;
   allocation: number;
-  risk?: number;
-  volatility?: number;
-  moonshot?: string;
+  amount?: string;
   color?: string;
+  matchScore?: number;
+  volatility?: number;
+  risk?: number;
+  moonshot?: string;
   expectedReturn?: number;
 }
 
@@ -72,12 +81,28 @@ export default function Home() {
 
   const accessCodeForm = useForm<AccessCodeInputs>();
 
-  // Load usage count from localStorage on component mount
+  const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<FormInputs>({
+    defaultValues: {
+      investmentAmount: 1000,
+      riskTolerance: 5,
+      volatilityPreference: 5,
+      moonshotRate: 5,
+      timeHorizon: 1
+    }
+  });
+  
+  // Check for usage count in localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const savedCount = localStorage.getItem('xoracle_usage_count');
-      if (savedCount) {
-        setUsageCount(parseInt(savedCount, 10));
+      const storedCount = localStorage.getItem('xoracle_usage_count');
+      if (storedCount) {
+        const count = parseInt(storedCount);
+        setUsageCount(count);
+        
+        // If used more than 3 times, require access code
+        if (count >= 3) {
+          setShowAccessCodeInput(true);
+        }
       }
     }
   }, []);
@@ -102,13 +127,7 @@ export default function Home() {
     }, 300);
   };
 
-  const handleFormSubmit = (data: {
-    investmentAmount: number;
-    riskTolerance: number;
-    volatilityPreference: number;
-    moonshotRate: number;
-    timeHorizon: number;
-  }) => {
+  const handleFormSubmit: SubmitHandler<FormInputs> = (data) => {
     // Check if user has exceeded usage limit
     if (usageCount >= 3 && !hasAccessCode) {
       setShowAccessCodeInput(true);

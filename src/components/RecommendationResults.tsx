@@ -2,16 +2,30 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
+import { Pie, Bar } from 'react-chartjs-2';
+import Image from 'next/image';
 import html2canvas from 'html2canvas';
+
+ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface CryptoData {
   name: string;
   symbol: string;
+  price?: number;
+  marketCap?: number;
+  volume?: number;
+  riskScore?: number;
+  volatilityScore?: number;
+  moonshotScore?: number;
+  overallScore?: number;
   allocation: number;
-  risk?: number;
-  volatility?: number;
-  moonshot?: string;
+  amount?: string;
   color?: string;
+  matchScore?: number;
+  volatility?: number;
+  risk?: number;
+  moonshot?: string;
   expectedReturn?: number;
 }
 
