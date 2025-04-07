@@ -1,0 +1,201 @@
+Coin,Volatility,Risk,Moonshot Score
+Bitcoin (BTC),40,5,10x
+Ethereum (ETH),10,10,5x
+XRP,10,7,5x
+BNB,10,5,3x
+Solana (SOL),10,3,3x
+Cardano (ADA),15,10,5x
+Polkadot (DOT),10,10,5x
+Chainlink (LINK),10,10,5x
+Avalanche (AVAX),30,5,10x
+Cosmos (ATOM),10,10,5x
+Near Protocol (NEAR),30,7,10x
+Algorand (ALGO),20,5,5x
+VeChain (VET),20,10,5x
+Hedera (HBAR),15,3,3x
+Fantom (FTM),40,7,20x
+Polkadot (DOT),35,7,15x
+Chainlink (LINK),10,7,5x
+Avalanche (AVAX),30,7,10x
+Stellar (XLM),15,5,3x
+Internet Computer (ICP),10,10,5x
+Filecoin (FIL),40,5,10x
+Cosmos (ATOM),35,10,15x
+Toncoin (TON),25,5,10x
+TRON (TRX),40,10,100x
+Ethereum Classic (ETC),20,5,5x
+Monero (XMR),40,3,10x
+Bitcoin Cash (BCH),15,3,3x
+Algorand (ALGO),10,7,5x
+VeChain (VET),25,7,10x
+Hedera (HBAR),30,3,10x
+Fantom (FTM),30,5,10x
+Tezos (XTZ),35,3,15x
+Theta Network (THETA),10,5,3x
+Elrond (EGLD),15,7,5x
+Aave (AAVE),40,10,100x
+EOS (EOS),40,10,100x
+Flow (FLOW),10,5,3x
+Decentraland (MANA),15,5,3x
+Sandbox (SAND),20,5,5x
+Axie Infinity (AXS),30,5,10x
+Chiliz (CHZ),20,10,5x
+KuCoin Token (KCS),10,10,5x
+Huobi Token (HT),10,7,5x
+PancakeSwap (CAKE),15,7,5x
+Zcash (ZEC),15,7,5x
+Maker (MKR),40,7,20x
+Neo (NEO),35,3,15x
+Dash (DASH),30,10,15x
+Polkadot (DOT),20,7,5x
+Chainlink (LINK),15,10,5x
+Avalanche (AVAX),25,5,10x
+Cosmos (ATOM),20,3,5x
+Near Protocol (NEAR),10,7,5x
+Algorand (ALGO),35,10,15x
+Filecoin (FIL),15,10,5x
+The Graph (GRT),15,7,5x
+Arweave (AR),40,10,100x
+Flow (FLOW),35,7,15x
+Internet Computer (ICP),25,3,10x
+Fantom (FTM),30,7,10x
+Hedera (HBAR),15,7,5x
+Render (RNDR),25,10,15x
+Sui (SUI),20,7,5x
+Aptos (APT),30,5,10x
+Kava (KAVA),40,7,20x
+Thorchain (RUNE),25,5,10x
+Kadena (KDA),20,10,5x
+Ocean Protocol (OCEAN),40,3,10x
+Helium (HNT),30,10,15x
+Siacoin (SC),20,7,5x
+iExec RLC (RLC),30,5,10x
+OriginTrail (TRAC),30,3,10x
+Akash Network (AKT),35,10,15x
+Stacks (STX),10,10,5x
+Optimism (OP),25,10,15x
+Immutable (IMX),15,7,5x
+Zilliqa (ZIL),10,3,3x
+Ontology (ONT),10,5,3x
+Nervos Network (CKB),20,5,5x
+WOO Network (WOO),20,7,5x
+Biconomy (BICO),25,7,10x
+Dusk Network (DUSK),10,7,5x
+Reserve Rights (RSR),15,5,3x
+Energy Web Token (EWT),25,10,15x
+Band Protocol (BAND),35,10,15x
+Velas (VLX),25,3,10x
+Fetch.ai (FET),20,7,5x
+Covalent (CQT),40,7,20x
+Litentry (LIT),40,5,10x
+Metal DAO (MTL),35,3,15x
+Numeraire (NMR),25,3,10x
+API3,15,3,3x
+Phala Network (PHA),10,10,5x
+Radix (XRD),25,5,10x
+DeXe (DEXE),10,10,5x
+IoTeX (IOTX),25,10,15x
+Aleph.im (ALEPH),20,7,5x
+Marlin (POND),10,5,3x
+Celer Network (CELR),40,10,100x
+Cartesi (CTSI),10,7,5x
+Mina Protocol (MINA),30,10,15x
+SingularityNET (AGIX),20,5,5x
+Render Network (RNDR),40,7,20x
+Persistence (XPRT),35,3,15x
+Oasis Network (ROSE),15,3,3x
+Ark (ARK),10,10,5x
+SKALE (SKL),30,5,10x
+Aergo (AERGO),10,3,3x
+Bluzelle (BLZ),40,5,10x
+Kujira (KUJI),10,7,5x
+Aurora (AURORA),10,5,3x
+Boba Network (BOBA),25,7,10x
+Canto (CANTO),40,10,100x
+Cortex (CTXC),15,7,5x
+Dora Factory (DORA),10,3,3x
+Ergo (ERG),30,3,10x
+e-Radix (EXRD),10,5,3x
+Evmos (EVMOS),30,5,10x
+Horizon Protocol (HZN),25,5,10x
+IoTexPad (TEX),35,10,15x
+IRISnet (IRIS),20,7,5x
+KILT Protocol (KILT),30,5,10x
+Loom Network (LOOM),20,10,5x
+Mdex (MDX),25,10,15x
+MetisDAO (METIS),10,7,5x
+Milkomeda (MILK),40,7,20x
+Morpheus Labs (MITX),35,5,15x
+MyNeighborAlice (ALICE),35,10,15x
+NEARPad (PAD),40,7,20x
+OpenOcean (OOE),35,7,15x
+Oraichain (ORAI),35,3,15x
+Parallel Finance (PARA),15,3,3x
+Perpetual Protocol (PERP),30,3,10x
+Phantom (FTM2),35,7,15x
+PlatON Network (LAT),25,7,10x
+Polymesh (POLYX),35,5,15x
+Prometeus (PROM),10,7,5x
+Qredo (QRDO),10,5,3x
+Rari Governance (RGT),40,10,100x
+Razor Network (RAZOR),20,7,5x
+RMRK (RMRK),35,3,15x
+Rubic (RBC),35,7,15x
+Saito (SAITO),40,5,10x
+SelfKey (KEY),15,7,5x
+Shyft Network (SHFT),15,10,5x
+Songbird (SGB),20,10,5x
+Starname (IOV),20,5,5x
+SundaeSwap (SUNDAE),10,10,5x
+Tellor (TRB),40,5,10x
+Umee (UMEE),30,5,10x
+Verasity (VRA),20,5,5x
+Lisk (LSK),10,5,3x
+Dvision Network (DVI),40,3,10x
+XYO Network (XYO),15,3,3x
+TomoChain (TOMO),25,3,10x
+Swingby (SWINGBY),25,5,10x
+Propy (PRO),10,10,5x
+Utrust (UTK),30,5,10x
+Wanchain (WAN),40,10,100x
+Syscoin (SYS),20,5,5x
+VeChain (VET),20,3,5x
+Moonwell (MFAM),40,3,10x
+Origin Dollar Governance (OGV),40,3,10x
+Haven Protocol (XHV),30,3,10x
+LCX (LCX),30,3,10x
+Xido Finance (XIDO),30,10,15x
+Boson Protocol (BOSON),35,7,15x
+DFINITY Internet Identity (DID),40,3,10x
+RAMP (RAMP),10,3,3x
+Verge (XVG),10,5,3x
+GNY (GNY),35,7,15x
+VIDT DAO (VIDT),30,10,15x
+World Mobile Token (WMT),10,10,5x
+Klever (KLV),20,10,5x
+Ambire Wallet (WALLET),25,5,10x
+Meter Governance (MTRG),30,3,10x
+Bifrost (BFC),30,5,10x
+Unifi Protocol DAO (UNFI),20,10,5x
+VIDYA (VIDYA),15,5,3x
+Marblex (MBX),40,7,20x
+WazirX (WRX),40,7,20x
+Ternoa (CAPS),15,3,3x
+MUX Protocol (MCB),15,10,5x
+HOPR (HOPR),15,5,3x
+QuickSwap (QUICK),35,5,15x
+Tokamak Network (TON),25,10,15x
+Orion Protocol (ORN),25,7,10x
+Polkastarter (POLS),30,5,10x
+Rook (ROOK),35,10,15x
+DIA (DIA),15,10,5x
+Lit Protocol (LIT),10,7,5x
+Battle World (BWO),25,7,10x
+PowerLedger (POWR),30,10,15x
+CUDOS (CUDOS),25,5,10x
+Maple Finance (MPL),30,7,10x
+Crust Network (CRU),15,5,3x
+DeGate (DG),15,7,5x
+Router Protocol (ROUTE),10,5,3x
+Fuse Network (FUSE),20,3,5x
+Gearbox Protocol (GEAR),40,7,20x
