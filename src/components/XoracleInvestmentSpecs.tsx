@@ -208,6 +208,19 @@ export default function XoracleInvestmentSpecs({
     setInvestmentAmount(value);
   };
 
+  // Format investment amount for display
+  const formatCurrency = (value: string) => {
+    // Remove non-numeric characters
+    const numericValue = value.replace(/[^0-9]/g, '');
+    
+    // Format with commas
+    if (numericValue) {
+      const number = parseInt(numericValue, 10);
+      return number.toLocaleString('en-US');
+    }
+    return '';
+  };
+
   // Format the multiplier display
   const formattedMultiplier = `${desiredMultiplier}x`;
   
@@ -222,8 +235,7 @@ export default function XoracleInvestmentSpecs({
     `${timeHorizon} Months`;
     
   // Format the investment amount with commas
-  const formattedInvestmentAmount = investmentAmount ? 
-    parseInt(investmentAmount).toLocaleString('en-US') : '';
+  const formattedInvestmentAmount = formatCurrency(investmentAmount);
 
   // Animation for slider glow effect
   const getSliderGlowVariants = (color: string) => ({
@@ -292,13 +304,21 @@ export default function XoracleInvestmentSpecs({
     };
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default form submission
+    // Ensure investment amount is a valid number
+    const numericAmount = investmentAmount.replace(/[^0-9]/g, '');
+    if (!numericAmount || parseInt(numericAmount) <= 0) {
+      alert('Please enter a valid investment amount');
+      return;
+    }
+    
     onSubmit({
       desiredMultiplier,
       timeHorizon,
       volatilityPreference,
       riskTolerance,
-      investmentAmount
+      investmentAmount: numericAmount
     });
   };
 
